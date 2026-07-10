@@ -1,0 +1,341 @@
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Wand2, ArrowLeft, Download, RefreshCw, Smartphone, Layers, Loader2 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
+import { useQuery } from '@tanstack/react-query'
+import { appsApi } from '../../../services/api'
+import html2canvas from 'html2canvas'
+
+export default function AIScreenshotGen() {
+  const navigate = useNavigate()
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [showResults, setShowResults] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [dynamicTitles, setDynamicTitles] = useState(["", "", "", ""])
+  
+  // Fetch real apps
+  const { data: allApps = [], isLoading } = useQuery({
+    queryKey: ['admin-apps-ai-screenshots'],
+    queryFn: () => appsApi.getAll({ limit: 1000 }).then(r => r.apps || [])
+  })
+
+  const [selectedAppId, setSelectedAppId] = useState('')
+  const [selectedApp, setSelectedApp] = useState(null)
+
+  // Default selection
+  useEffect(() => {
+    if (allApps.length > 0 && !selectedAppId) {
+      setSelectedAppId(allApps[0].id)
+    }
+  }, [allApps, selectedAppId])
+
+  useEffect(() => {
+    if (selectedAppId && allApps.length > 0) {
+      setSelectedApp(allApps.find(a => a.id === selectedAppId))
+    }
+  }, [selectedAppId, allApps])
+
+  const handleGenerate = () => {
+    if (!selectedApp) return;
+    setIsGenerating(true)
+    setShowResults(false)
+    
+    // Extract real phrases from the app's actual description to use as mockup titles!
+    const desc = selectedApp.description || `Experience ${selectedApp.name}. Premium features for you. Simple and intuitive design. Download it today.`;
+    const sentences = desc.split(/[.!?\n]/).map(s => s.trim()).filter(s => s.length > 8);
+    
+    const newTitles = [];
+    if (sentences.length >= 4) {
+      newTitles.push(sentences[0]);
+      newTitles.push(sentences[1]);
+      newTitles.push(sentences[2]);
+      newTitles.push(sentences[3]);
+    } else {
+      newTitles.push(`Discover ${selectedApp.name}`);
+      newTitles.push(`Best in ${selectedApp.category || 'Class'}`);
+      newTitles.push(sentences[0] || "Fast & Reliable");
+      newTitles.push("Download Now");
+    }
+    
+    // Format titles to look good (truncate if too long)
+    const formattedTitles = newTitles.map(t => t.length > 35 ? t.substring(0, 32) + '...' : t);
+    
+    setTimeout(() => {
+      setDynamicTitles(formattedTitles);
+      setIsGenerating(false)
+      setShowResults(true)
+      toast.success("Screenshots Generated!")
+    }, 2500)
+  }
+
+  const handleDownload = async () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+    const toastId = toast.loading("Preparing high-res PNGs...");
+    
+    try {
+      // Find all screenshot elements by their class marker
+      const elements = document.querySelectorAll('.screenshot-capture-node');
+      
+      for (let i = 0; i < elements.length; i++) {
+        const el = elements[i];
+        const canvas = await html2canvas(el, {
+          scale: 2, // High resolution
+          useCORS: true,
+          backgroundColor: null
+        });
+        
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = `${selectedApp?.name.replace(/\s+/g, '_')}_Screenshot_${i + 1}.png`;
+        link.href = dataUrl;
+        link.click();
+        
+        // Small delay to prevent browser locking up multi-downloads
+        await new Promise(r => setTimeout(r, 500));
+      }
+      
+      toast.success("Successfully downloaded 4 screenshots!", { id: toastId });
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to generate downloads.", { id: toastId });
+    } finally {
+      setIsDownloading(false);
+    }
+  }
+
+  // Predefined mockup frames (colors only now)
+  const generatedScreens = [
+    { color: "from-[#0A84FF] to-[#007AFF]" },
+    { color: "from-[#30D158] to-[#34C759]" },
+    { color: "from-[#FF9F0A] to-[#FF375F]" },
+    { color: "from-[#bf5af2] to-[#5e5ce6]" },
+  ]
+
+  return (
+    <div className="max-w-7xl mx-auto pb-24 text-white">
+      {/* Top Bar */}
+      <div className="flex items-center justify-between gap-4 py-6 sticky top-0 bg-black/80 backdrop-blur-xl z-30 mb-8 border-b border-white/10">
+        <div className="flex items-center gap-4">
+          <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+          <div>
+            <h1 className="text-2xl font-bold flex items-center gap-2">
+              <Wand2 className="w-6 h-6 text-[#0A84FF]" /> AI Screenshot Generator
+            </h1>
+            <p className="text-textSecondary text-sm">Professional Play Store style screenshots auto-generated by AI.</p>
+          </div>
+        </div>
+        
+        {showResults && (
+          <div className="flex items-center gap-3">
+            <button onClick={handleGenerate} disabled={isGenerating || isDownloading} className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 font-medium flex items-center gap-2 transition-colors disabled:opacity-50">
+              <RefreshCw className="w-4 h-4" /> Generate New
+            </button>
+            <button onClick={handleDownload} disabled={isDownloading} className="px-4 py-2 rounded-xl bg-[#0A84FF] hover:bg-[#0A84FF]/90 font-medium flex items-center gap-2 transition-colors shadow-lg shadow-[#0A84FF]/20 disabled:opacity-50">
+              {isDownloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />} Download PNGs
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* Controls Column */}
+        <div className="lg:col-span-1 space-y-6">
+          <div className="bg-[#1C1C1E] border border-white/10 rounded-2xl p-6">
+            <h2 className="text-lg font-bold mb-4">Configuration</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm text-textSecondary mb-2">Select App to Analyze</label>
+                <select 
+                  value={selectedAppId}
+                  onChange={(e) => setSelectedAppId(e.target.value)}
+                  disabled={isLoading || allApps.length === 0}
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-[#0A84FF] transition-colors disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <option value="">Loading apps...</option>
+                  ) : allApps.length === 0 ? (
+                    <option value="">No apps available</option>
+                  ) : (
+                    allApps.map(app => (
+                      <option key={app.id} value={app.id}>
+                        {app.name}
+                      </option>
+                    ))
+                  )}
+                </select>
+              </div>
+              
+              {selectedApp && (
+                <div className="p-4 bg-white/5 rounded-xl border border-white/5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <img src={selectedApp.iconUrl} className="w-10 h-10 rounded-lg object-cover" />
+                    <div>
+                      <div className="font-bold text-sm">{selectedApp.name}</div>
+                      <div className="text-xs text-textSecondary">{selectedApp.category}</div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-textSecondary line-clamp-3 mt-2">
+                    {selectedApp.description}
+                  </p>
+                </div>
+              )}
+
+              <button 
+                onClick={handleGenerate}
+                disabled={isGenerating}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0A84FF] to-[#30D158] hover:opacity-90 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(10,132,255,0.2)] disabled:opacity-50"
+              >
+                {isGenerating ? (
+                  <><div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" /> Analyzing Features...</>
+                ) : (
+                  <><Wand2 className="w-4 h-4" /> Generate Store Screenshots</>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Results Column */}
+        <div className="lg:col-span-3 relative min-h-[500px]">
+          <AnimatePresence mode="wait">
+            {!isGenerating && !showResults && (
+              <motion.div 
+                key="empty"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-[#1C1C1E]/50 border border-white/5 rounded-3xl"
+              >
+                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mb-6">
+                  <Smartphone className="w-10 h-10 text-white/20" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">No Mockups Generated</h3>
+                <p className="text-textSecondary max-w-sm">Select an app and generate beautiful, highly-converting app store screenshots instantly.</p>
+              </motion.div>
+            )}
+
+            {isGenerating && (
+              <motion.div 
+                key="loading"
+                initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}
+                className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-[#1C1C1E] border border-[#0A84FF]/30 rounded-3xl overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0A84FF]/10 to-[#30D158]/10 animate-pulse" />
+                <Wand2 className="w-12 h-12 text-[#0A84FF] animate-bounce mb-6 relative z-10" />
+                <h3 className="text-2xl font-bold mb-2 relative z-10">Designing Mockups...</h3>
+                <p className="text-[#0A84FF] font-medium relative z-10">Reading features and creating 3D phone wrappers</p>
+              </motion.div>
+            )}
+
+            {showResults && (
+              <motion.div 
+                key="results"
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+              >
+                {generatedScreens.map((screen, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex flex-col gap-4"
+                  >
+                    {/* The Screenshot Mockup */}
+                    <div className={`screenshot-capture-node relative w-full aspect-[9/19] rounded-[2.5rem] bg-gradient-to-br ${screen.color} p-5 flex flex-col overflow-hidden shadow-2xl ring-1 ring-white/10`}>
+                      <div className="text-center mt-4 mb-8 px-1">
+                        <h3 className="text-white font-black text-[22px] leading-[1.1] drop-shadow-md">
+                          {dynamicTitles[index]}
+                        </h3>
+                      </div>
+                      
+                      {/* Realistic iPhone Frame */}
+                      <div className="flex-1 bg-black rounded-t-[2rem] border-[8px] border-black relative shadow-2xl overflow-hidden flex flex-col ring-1 ring-white/20">
+                         {/* Dynamic Island */}
+                         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[35%] h-[22px] bg-black rounded-full z-20 flex justify-end items-center px-2">
+                           <div className="w-2 h-2 rounded-full bg-[#111] border border-white/10" />
+                         </div>
+                         
+                         {/* Dynamic inner app content */}
+                         <div className="flex-1 bg-[#121212] flex flex-col relative z-10 w-full h-full">
+                           {selectedApp?.screenshots?.[index] ? (
+                             <img 
+                               src={selectedApp.screenshots[index]} 
+                               className="w-full h-full object-cover rounded-b-[1.2rem]"
+                               alt={`Screenshot ${index + 1}`}
+                             />
+                           ) : (
+                             <div className="flex-1 pt-10 px-4 pb-4">
+                               {/* App Header Fallback */}
+                               <div className="flex items-center gap-3 mb-6">
+                                 {selectedApp && <img src={selectedApp.iconUrl} className="w-10 h-10 rounded-xl shadow-lg border border-white/10" />}
+                                 <div>
+                                   <div className="w-20 h-3 bg-white/20 rounded-full mb-1.5" />
+                                   <div className="w-12 h-2 bg-white/10 rounded-full" />
+                                 </div>
+                               </div>
+                               
+                               {/* App Body Fallback - Unique per screen */}
+                               {index === 0 && (
+                                 <div className="space-y-3">
+                                   <div className="w-full h-32 bg-gradient-to-br from-[#0A84FF]/20 to-[#0A84FF]/5 rounded-2xl border border-[#0A84FF]/20 flex items-center justify-center">
+                                     <div className="w-16 h-16 rounded-full bg-[#0A84FF]/20 flex items-center justify-center">
+                                       <div className="w-8 h-8 rounded-full bg-[#0A84FF]" />
+                                     </div>
+                                   </div>
+                                   <div className="flex gap-2">
+                                     <div className="flex-1 h-16 bg-white/5 rounded-xl" />
+                                     <div className="flex-1 h-16 bg-white/5 rounded-xl" />
+                                   </div>
+                                 </div>
+                               )}
+
+                               {index === 1 && (
+                                 <div className="space-y-3">
+                                   <div className="flex items-end justify-between h-24 px-2 mb-2">
+                                     {[40, 70, 45, 90, 65, 80].map((h, i) => (
+                                       <div key={i} className="w-3 bg-gradient-to-t from-[#30D158] to-[#34C759] rounded-t-sm" style={{ height: `${h}%` }} />
+                                     ))}
+                                   </div>
+                                   <div className="w-full h-12 bg-white/5 rounded-xl" />
+                                   <div className="w-full h-12 bg-white/5 rounded-xl" />
+                                 </div>
+                               )}
+
+                               {index === 2 && (
+                                 <div className="space-y-3">
+                                   <div className="w-full aspect-square rounded-full border-[12px] border-white/5 flex items-center justify-center border-t-[#FF9F0A] border-r-[#FF9F0A] rotate-45 mb-4">
+                                      <div className="w-1/2 aspect-square rounded-full bg-white/5" />
+                                   </div>
+                                 </div>
+                               )}
+
+                               {index === 3 && (
+                                 <div className="space-y-3 flex flex-wrap gap-2">
+                                   <div className="w-full h-24 bg-gradient-to-r from-[#bf5af2]/20 to-[#5e5ce6]/20 rounded-2xl" />
+                                   <div className="w-[45%] h-20 bg-white/5 rounded-xl" />
+                                   <div className="w-[45%] h-20 bg-white/5 rounded-xl" />
+                                   <div className="w-full h-10 bg-[#bf5af2] rounded-xl mt-2" />
+                                 </div>
+                               )}
+                             </div>
+                           )}
+                         </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center font-medium text-textSecondary text-sm">
+                      Screen {index + 1}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  )
+}

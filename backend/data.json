@@ -1,0 +1,907 @@
+{
+  "apps": [
+    {
+      "id": "1548f52e-2a88-4b13-a667-7e2d37639b5f",
+      "name": "puzzles AI",
+      "developer": "loganathanm.in",
+      "shortDescription": "Pinch, drag & solve puzzles with your hand — no touch needed! AI-powered fun.",
+      "description": "Step-by-Step Guide\n\n1. Open the website\nGo to https://puzzle.loganathanm.in/ on a device with a camera (laptop/desktop with webcam works best).\n\n2. Wait for the AI engine to load\nYou'll see \"INITIALIZING AI ENGINE...\" — this is the AI loading up to detect your hand movements. Give it a few seconds.\n\n3. Choose difficulty\nSelect Easy (3x3) to start with a simple 3x3 grid puzzle.\n\n4. Allow camera access\nThe browser will ask for camera permission — click Allow, since the game tracks your hand through the webcam.\n\n5. Tap \"START GAME\"\nThis begins the puzzle round.\n\n6. Control the cursor with your hand\nMove your hand in front of the camera — the on-screen cursor follows your hand movement.\n\n7. Pick up a puzzle piece\nPinch your fingers together and hold (like a pinch gesture) over the piece you want to move.\n\n8. Drag and swap\nWhile still pinching, move your hand to drag the piece to a new position, then release the pinch to drop/swap it with another piece.\n\n9. Repeat until solved\nKeep pinching, dragging, and releasing pieces until the full image/puzzle is correctly arranged.\n\n10. Check the Leaderboard\nAfter playing, tap LEADERBOARD to see your ranking/score compared to other players\n\n\n\nTips:\n\n1. Sit in a well-lit area so the camera can track your hand clearly.\n2. Keep your hand within the camera frame the whole time.\n3. If gestures aren't registering, try moving your hand a bit slower and closer to the camera.",
+      "whatsNew": "",
+      "category": "games",
+      "version": "1.0.0",
+      "minOS": "Android 14+",
+      "ageRating": "4+",
+      "websiteUrl": "https://puzzle.loganathanm.in/",
+      "supportUrl": "",
+      "privacyUrl": "",
+      "price": 0,
+      "isFeatured": true,
+      "hasInAppPurchases": false,
+      "visibleInStore": true,
+      "supportIPhone": true,
+      "supportIPad": true,
+      "supportMac": false,
+      "supportWatch": false,
+      "tags": [],
+      "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783603575808_w73tnh83bhh.png",
+      "screenshotUrls": [
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783603576828_aruwkspgm4o.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783603577579_22lk692kli.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783603578806_enbsn4vcor.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783603579748_qy8llfnrc0b.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783603580758_vh21mlp71g.png"
+      ],
+      "bannerUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/banners/1783603581533_ew3ygd4iwq8.png",
+      "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783603582438_rqsrgo3rpyc.apk",
+      "fileSize": 942329,
+      "uploaderId": "f36fc4e9-4ad7-49a5-8604-3bcf7574cf4b",
+      "installCount": 1,
+      "averageRating": 0,
+      "reviewCount": 0,
+      "status": "approved",
+      "createdAt": "2026-07-09T13:26:23.898Z",
+      "updatedAt": "2026-07-09T13:26:23.898Z",
+      "uploaderName": "Loganathanm.in",
+      "publishedAt": "2026-07-09T13:27:03.897Z",
+      "displaySize": "0.9 MB"
+    },
+    {
+      "id": "0db40636-045e-4180-9d03-f4e5210ca593",
+      "name": "My Portfolio",
+      "developer": "loganathanm.in",
+      "shortDescription": "Explore my projects, skills & experience — Loganathan's personal portfolio.",
+      "description": "Welcome to My Portfolio — the official app for Loganathan M, showcasing projects, skills, and professional journey, all in one place.\n\n🔹 About Me\nGet to know Loganathan M — a [Full-Stack Developer / your title] passionate about building clean, functional, and user-friendly digital products.\n\n🔹 Projects\nBrowse a curated collection of real-world projects, including:\nEach project includes details, tech stack used, and links to live demos or source code.\n\n🔹 Skills & Tech Stack\nA complete overview of technical skills including:\n- Frontend: [React, HTML/CSS, etc.]\n- Backend: [Node.js, etc.]\n- Tools & Platforms: [Git, AWS, etc.]\n\n🔹 Resume & Experience\nView work experience, education, and download the latest resume directly from the app.\n\n🔹 Contact\nReach out directly through the app — email, LinkedIn, GitHub, and other social links are just a tap away.\n\n🔹 Why This App?\nInstead of a static website, My Portfolio brings a fast, native, always-accessible experience to showcase work anytime, anywhere — perfect for recruiters, clients, and collaborators on the go.\n\nVisit the web version at loganathanm.in\n\nDownload now and explore the journey, one project at a time.",
+      "whatsNew": "",
+      "category": "social",
+      "version": "6.2.0",
+      "minOS": "Android 14+",
+      "ageRating": "17+",
+      "websiteUrl": "https://www.loganathanm.in/",
+      "supportUrl": "",
+      "privacyUrl": "",
+      "price": 0,
+      "isFeatured": true,
+      "hasInAppPurchases": false,
+      "visibleInStore": true,
+      "supportIPhone": true,
+      "supportIPad": true,
+      "supportMac": false,
+      "supportWatch": false,
+      "tags": [],
+      "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783081800003_zjcik9th8th.png",
+      "screenshotUrls": [
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783081800451_40sq15an8mr.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783081801113_vg0or5hg6x.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783081801608_xeh7byt0vc.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783081802118_pclpol1bk8h.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783081802614_vgugtgjxknl.png"
+      ],
+      "bannerUrl": "",
+      "fileSize": 0,
+      "uploaderId": "6769a5c8-145a-4e24-9e30-361d5bc5d6fd",
+      "installCount": 88,
+      "averageRating": 50,
+      "reviewCount": 44,
+      "status": "approved",
+      "createdAt": "2026-07-03T12:30:03.055Z",
+      "updatedAt": "2026-07-04T11:43:17.962Z",
+      "uploaderName": "lokesh",
+      "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783082392389_9rznn2qt72.apk",
+      "rejectionReason": "Low quality content",
+      "holdReason": "",
+      "publishedAt": "2026-07-03T12:58:22.002Z",
+      "displaySize": "543 MB"
+    },
+    {
+      "name": "Loga FM Radio",
+      "developer": "Loganathanm.in",
+      "category": "entertainment",
+      "price": 0,
+      "shortDescription": "Listen to live FM radio from everywhere",
+      "description": "Loga FM Radio brings you the best live radio stations directly to your device. Enjoy high-quality streaming, zero buffering, and an elegant interface designed for true music lovers.",
+      "version": "1.0.0",
+      "minOS": "Android 10+",
+      "ageRating": "4+",
+      "installCount": 51999,
+      "averageRating": 4,
+      "reviewCount": 6,
+      "isFeatured": true,
+      "tags": [
+        "radio",
+        "music",
+        "live"
+      ],
+      "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783442850885_x2qdkoxqla8.png",
+      "screenshotUrls": [
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783066955545_w185o3b2ct.jpeg",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783066956718_24vx6o7rj6n.jpeg",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783066957364_mgpclgdj8pb.jpeg"
+      ],
+      "bannerUrl": "https://img.freepik.com/vector-premium/cartel-radio-retro_600765-9514.jpg?semt=ais_hybrid&w=740&q=80",
+      "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783354423272_gfqaegcrl2.apk",
+      "id": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "createdAt": "2026-06-29T09:36:43.516Z",
+      "updatedAt": "2026-07-07T16:47:37.823Z",
+      "status": "approved",
+      "fileSize": 4194304,
+      "displaySize": "4.0 MB",
+      "websiteUrl": "https://fm.loganathanm.in",
+      "isDeveloperVerified": true
+    },
+    {
+      "name": "Resume Builder",
+      "developer": "Loga Apps",
+      "category": "productivity",
+      "price": 0,
+      "shortDescription": "Create professional resumes in minutes",
+      "description": "Build your professional resume instantly with beautiful templates, AI suggestions, and one-click PDF export. Perfect for landing your next dream job!",
+      "version": "2.1.0",
+      "minOS": "Android",
+      "ageRating": "4+",
+      "installCount": 139999,
+      "averageRating": 933.2,
+      "reviewCount": 5,
+      "isFeatured": true,
+      "tags": [
+        "resume",
+        "career",
+        "productivity"
+      ],
+      "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1782915287044_9mc3fcgd1d5.png",
+      "screenshotUrls": [
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067393139_262zbalj3rh.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067393825_losh96sl3l.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067394255_v309xwlwfn9.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067394712_nsazo6mmuz.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067395151_ospnnngzl9r.png",
+        "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783067395623_55p3absq79d.jpg"
+      ],
+      "bannerUrl": "https://www.blueskyresumes.com/wp-content/uploads/banner_resumes.jpg",
+      "downloadUrl": "http://localhost:3001/uploads/resume.apk",
+      "id": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "createdAt": "2026-06-28T09:36:43.517Z",
+      "updatedAt": "2026-07-08T03:51:55.014Z",
+      "status": "approved",
+      "holdReason": "",
+      "publishedAt": "2026-07-01T13:44:33.014Z",
+      "displaySize": "5.1 MB",
+      "fileSize": 5347738,
+      "websiteUrl": "https://resume.loganathanm.in/resume-builder.html"
+    },
+    {
+      "id": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "name": "Yoga Daily",
+      "developer": "Wellness Studios",
+      "category": "health",
+      "price": 0,
+      "shortDescription": "Daily yoga routines for beginners.",
+      "description": "Start your morning right with a 15-minute yoga session.",
+      "version": "2.1.0",
+      "minOS": "iOS 14.0+",
+      "ageRating": "17+",
+      "isFeatured": false,
+      "iconUrl": "https://picsum.photos/seed/yoga/512/512",
+      "screenshotUrls": [
+        "https://picsum.photos/seed/yoga1/390/844"
+      ],
+      "tags": [
+        "yoga",
+        "health",
+        "fitness"
+      ],
+      "status": "approved",
+      "createdAt": "2026-06-29T09:36:43.517Z",
+      "updatedAt": "2026-07-01T14:21:05.329Z",
+      "installCount": 0,
+      "scheduledAt": "2026-07-02",
+      "rejectionReason": "Suspicious APK permissions",
+      "publishedAt": "2026-07-01T14:15:18.722Z",
+      "reviewCount": 5,
+      "averageRating": 2.2,
+      "displaySize": "1.8 GB"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "af4551f1-a9c4-4129-917f-e5b32b94b673",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "rating": 5,
+      "title": "",
+      "body": "good",
+      "userName": "App Store User",
+      "helpful": 0,
+      "createdAt": "2026-07-01T14:42:03.938Z"
+    },
+    {
+      "id": "650968a0-2c9c-43a6-8600-4724da57a075",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "appName": "Loga FM Radio",
+      "userId": "user-0",
+      "userName": "Store User 1",
+      "rating": 2,
+      "text": "Amazing app, I use it every day!",
+      "isFlagged": false,
+      "createdAt": "2026-04-03T05:32:43.161Z"
+    },
+    {
+      "id": "e8b5b27c-aecf-4f94-a9bc-257f1ddd8786",
+      "appId": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "appName": "Resume Builder",
+      "userId": "user-1",
+      "userName": "Store User 2",
+      "rating": 4,
+      "text": "It crashes sometimes but overall very good.",
+      "isFlagged": false,
+      "createdAt": "2026-04-04T19:51:26.502Z"
+    },
+    {
+      "id": "22996ac3-950f-4dee-a434-72633b2f5945",
+      "appId": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "appName": "Yoga Daily",
+      "userId": "user-3",
+      "userName": "Store User 4",
+      "rating": 1,
+      "text": "Best radio app out there, crystal clear sound.",
+      "isFlagged": false,
+      "createdAt": "2026-04-11T06:27:18.109Z"
+    },
+    {
+      "id": "ed33c2ae-2782-4cdb-bf24-ad620d53be52",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "appName": "Loga FM Radio",
+      "userId": "user-4",
+      "userName": "Store User 5",
+      "rating": 4,
+      "text": "Why does this app need so many permissions?",
+      "isFlagged": true,
+      "createdAt": "2026-06-12T07:38:31.467Z"
+    },
+    {
+      "id": "58e6efde-3b13-4df6-a04c-e2c2a76afbf0",
+      "appId": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "appName": "Resume Builder",
+      "userId": "user-5",
+      "userName": "Store User 6",
+      "rating": 2,
+      "text": "Perfect for my daily workflow.",
+      "isFlagged": false,
+      "createdAt": "2026-04-08T04:12:52.722Z"
+    },
+    {
+      "id": "3de2ef44-64f6-4000-8d44-c842845d507c",
+      "appId": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "appName": "Yoga Daily",
+      "userId": "user-7",
+      "userName": "Store User 8",
+      "rating": 1,
+      "text": "I wish it had a dark mode, but otherwise 5 stars.",
+      "isFlagged": false,
+      "createdAt": "2026-03-21T23:02:32.445Z"
+    },
+    {
+      "id": "f2689738-331b-45d4-ae55-5a0454af5cd1",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "appName": "Loga FM Radio",
+      "userId": "user-8",
+      "userName": "Store User 9",
+      "rating": 5,
+      "text": "Amazing app, I use it every day!",
+      "isFlagged": false,
+      "createdAt": "2026-03-27T05:51:51.443Z"
+    },
+    {
+      "id": "c77d1e4f-8dc7-4a1d-9446-15d214e57a39",
+      "appId": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "appName": "Resume Builder",
+      "userId": "user-9",
+      "userName": "Store User 10",
+      "rating": 5,
+      "text": "It crashes sometimes but overall very good.",
+      "isFlagged": false,
+      "createdAt": "2026-05-12T11:29:01.474Z"
+    },
+    {
+      "id": "f8579485-094a-4721-90bf-b777442f0fb0",
+      "appId": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "appName": "Yoga Daily",
+      "userId": "user-11",
+      "userName": "Store User 12",
+      "rating": 5,
+      "text": "Best radio app out there, crystal clear sound.",
+      "isFlagged": false,
+      "createdAt": "2026-05-23T02:34:09.324Z"
+    },
+    {
+      "id": "134679b3-1657-4d5b-80c1-a5a139b70144",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "appName": "Loga FM Radio",
+      "userId": "user-12",
+      "userName": "Store User 13",
+      "rating": 4,
+      "text": "Why does this app need so many permissions?",
+      "isFlagged": true,
+      "createdAt": "2026-05-28T10:07:58.236Z"
+    },
+    {
+      "id": "05a24f0f-03d2-483f-b912-8dca527f6a4d",
+      "appId": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "appName": "Resume Builder",
+      "userId": "user-13",
+      "userName": "Store User 14",
+      "rating": 3,
+      "text": "Perfect for my daily workflow.",
+      "isFlagged": false,
+      "createdAt": "2026-05-30T13:22:06.467Z"
+    },
+    {
+      "id": "39238d35-8e00-4a01-a258-bc515963aa93",
+      "appId": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "appName": "Yoga Daily",
+      "userId": "user-15",
+      "userName": "Store User 16",
+      "rating": 3,
+      "text": "I wish it had a dark mode, but otherwise 5 stars.",
+      "isFlagged": false,
+      "createdAt": "2026-04-20T03:26:24.122Z"
+    },
+    {
+      "id": "440124a1-e055-4df2-ad57-52302d8503f8",
+      "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+      "appName": "Loga FM Radio",
+      "userId": "user-16",
+      "userName": "Store User 17",
+      "rating": 4,
+      "text": "Amazing app, I use it every day!",
+      "isFlagged": false,
+      "createdAt": "2026-05-12T06:35:26.033Z"
+    },
+    {
+      "id": "deedbeca-f69e-42b6-97af-3ef8390db980",
+      "appId": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+      "appName": "Resume Builder",
+      "userId": "user-17",
+      "userName": "Store User 18",
+      "rating": 2,
+      "text": "It crashes sometimes but overall very good.",
+      "isFlagged": false,
+      "createdAt": "2026-03-07T23:56:29.762Z"
+    },
+    {
+      "id": "710a8c36-f2fa-4d5e-923a-0014e35efee1",
+      "appId": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+      "appName": "Yoga Daily",
+      "userId": "user-19",
+      "userName": "Store User 20",
+      "rating": 1,
+      "text": "Best radio app out there, crystal clear sound.",
+      "isFlagged": false,
+      "createdAt": "2026-04-13T15:10:33.180Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "6769a5c8-145a-4e24-9e30-361d5bc5d6fd",
+      "name": "lokesh",
+      "email": "lokesh152005@gmail.com",
+      "phone": "9655865777",
+      "password": "$2a$10$ifXI1Q57apDy44SF0.r1yupvaMXlSwW7kLP/Q.D7k2zEqdCc03kRG",
+      "role": "staff",
+      "status": "active",
+      "createdAt": "2026-07-02T10:10:19.879Z",
+      "lastLogin": null,
+      "avatar": "https://i.pravatar.cc/150?u=0.6490717483863828"
+    },
+    {
+      "id": "faf4b669-bfe7-4fe4-b427-fbd936688659",
+      "email": "loganathansite@gmail.com",
+      "name": "LOGANATHAN .M",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-07-01T13:24:50.341Z",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ_iyoaVTsk7CK4J8NFipfrvZQhyh6IUWadVAvRE3LtgO12tA=s96-c"
+    },
+    {
+      "id": "e4d63f08-f094-4929-9f4a-8244c257835d",
+      "email": "loganathan082008@gmail.com",
+      "name": "LOGANATHAN .M",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocKwxf6Y_IGAL2yElDznNLeFen1_NKELdWSjV0MWrrlAuSZTVFzU=s96-c",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-07-02T10:12:26.267Z"
+    },
+    {
+      "id": "f36fc4e9-4ad7-49a5-8604-3bcf7574cf4b",
+      "email": "support.loga@gmail.com",
+      "password": "$2a$10$INefTdcjgQ7wESD6vPUBVO9wItkIr0ZTOd/RMJMxfhzBqKp2bb.82",
+      "name": "Loganathanm.in",
+      "role": "super_admin",
+      "status": "active",
+      "createdAt": "2026-07-02T10:22:41.117Z",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocKlbNNdz4ZFurxdBsIFs65qgclroee1NRCleXFkuJf5LBcBcA=s96-c"
+    }
+  ],
+  "categories": [
+    {
+      "id": "games",
+      "name": "Games",
+      "emoji": "🎮",
+      "gradient": [
+        "#1a1a2e",
+        "#16213e"
+      ],
+      "appCount": 0
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "emoji": "⚡",
+      "gradient": [
+        "#0f3460",
+        "#533483"
+      ],
+      "appCount": 2
+    },
+    {
+      "id": "social",
+      "name": "Social",
+      "emoji": "💬",
+      "gradient": [
+        "#e94560",
+        "#0f3460"
+      ],
+      "appCount": 0
+    },
+    {
+      "id": "health",
+      "name": "Health & Fitness",
+      "emoji": "❤️",
+      "gradient": [
+        "#30d158",
+        "#0f3460"
+      ],
+      "appCount": 1
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "emoji": "📚",
+      "gradient": [
+        "#ff9f0a",
+        "#ff453a"
+      ],
+      "appCount": 0
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "emoji": "💰",
+      "gradient": [
+        "#30d158",
+        "#1a1a2e"
+      ],
+      "appCount": 1
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "emoji": "🎬",
+      "gradient": [
+        "#ff453a",
+        "#1a1a2e"
+      ],
+      "appCount": 1
+    },
+    {
+      "id": "photography",
+      "name": "Photo & Video",
+      "emoji": "📸",
+      "gradient": [
+        "#bf5af2",
+        "#1a1a2e"
+      ],
+      "appCount": 0
+    }
+  ],
+  "featured": {
+    "heroCards": [
+      {
+        "id": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+        "name": "Yoga Daily",
+        "iconUrl": "https://picsum.photos/seed/yoga/512/512",
+        "category": "health",
+        "type": "iosHeroCards",
+        "targetSection": "iosHeroCards",
+        "animationCode": ".slide-top {\n\t-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n\t        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n/* ----------------------------------------------\n * Generated by Animista on 2026-7-4 14:15:42\n * Licensed under FreeBSD License.\n * See http://animista.net/license for more info. \n * w: http://animista.net, t: @cssanimista\n * ---------------------------------------------- */\n\n/**\n * ----------------------------------------\n * animation slide-top\n * ----------------------------------------\n */\n@-webkit-keyframes slide-top {\n  0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n  100% {\n    -webkit-transform: translateY(-100px);\n            transform: translateY(-100px);\n  }\n}\n@keyframes slide-top {\n  0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n  100% {\n    -webkit-transform: translateY(-100px);\n            transform: translateY(-100px);\n  }\n}\n",
+        "bgUrl": "https://picsum.photos/seed/yoga/512/512",
+        "customIconUrl": "https://picsum.photos/seed/yoga/512/512"
+      },
+      {
+        "id": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+        "name": "Resume Builder",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1782915287044_9mc3fcgd1d5.png",
+        "category": "productivity",
+        "type": "androidHeroCards"
+      },
+      {
+        "id": "9348249e-895b-43d0-9862-c1d3acd429a7",
+        "name": "Loga FM Radio",
+        "iconUrl": "https://i.pinimg.com/736x/6a/c4/49/6ac449c901d1fe8466ca8455639febce.jpg",
+        "category": "entertainment",
+        "type": "androidHeroCards"
+      },
+      {
+        "id": "0db40636-045e-4180-9d03-f4e5210ca593",
+        "name": "My Portfolio",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783081800003_zjcik9th8th.png",
+        "category": "social",
+        "type": "androidHeroCards"
+      }
+    ],
+    "topFree": [
+      {
+        "id": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+        "name": "Resume Builder",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1782915287044_9mc3fcgd1d5.png",
+        "category": "productivity",
+        "type": "topFree"
+      },
+      {
+        "id": "9348249e-895b-43d0-9862-c1d3acd429a7",
+        "name": "Loga FM Radio",
+        "iconUrl": "https://i.pinimg.com/736x/6a/c4/49/6ac449c901d1fe8466ca8455639febce.jpg",
+        "category": "entertainment",
+        "type": "topFree"
+      },
+      {
+        "id": "0db40636-045e-4180-9d03-f4e5210ca593",
+        "name": "My Portfolio",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783081800003_zjcik9th8th.png",
+        "category": "social",
+        "type": "topFree"
+      },
+      {
+        "id": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+        "name": "Yoga Daily",
+        "iconUrl": "https://picsum.photos/seed/yoga/512/512",
+        "category": "health",
+        "type": "topFree"
+      }
+    ],
+    "topPaid": [],
+    "editorsChoice": [
+      {
+        "id": "9348249e-895b-43d0-9862-c1d3acd429a7",
+        "name": "Loga FM Radio",
+        "iconUrl": "https://i.pinimg.com/736x/6a/c4/49/6ac449c901d1fe8466ca8455639febce.jpg",
+        "category": "entertainment",
+        "type": "editorsChoice"
+      },
+      {
+        "id": "bda2342f-b175-4421-83d9-94a5f27eeba2",
+        "name": "Resume Builder",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1782915287044_9mc3fcgd1d5.png",
+        "category": "productivity",
+        "type": "editorsChoice"
+      },
+      {
+        "id": "0b9ec52c-38d9-4128-bc48-d935a06dd5a8",
+        "name": "Yoga Daily",
+        "iconUrl": "https://picsum.photos/seed/yoga/512/512",
+        "category": "health",
+        "type": "editorsChoice"
+      },
+      {
+        "id": "0db40636-045e-4180-9d03-f4e5210ca593",
+        "name": "My Portfolio",
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783081800003_zjcik9th8th.png",
+        "category": "social",
+        "type": "editorsChoice"
+      }
+    ]
+  },
+  "banners": [],
+  "orders": [],
+  "analyticsEvents": [
+    {
+      "id": "cb4cdf20-1da2-475c-b8ae-6f5fe01c8f97",
+      "type": "install",
+      "data": {
+        "appId": "9348249e-895b-43d0-9862-c1d3acd429a7",
+        "category": "entertainment"
+      },
+      "createdAt": "2026-07-01T11:29:20.618Z"
+    }
+  ],
+  "settings": {
+    "storeName": "Apple App Store",
+    "currency": "INR",
+    "commissionPercent": 30,
+    "maintenanceMode": false,
+    "sessionTimeout": 60,
+    "twoFAEnabled": false,
+    "supportEmail": "support.loga@gmail.com",
+    "twoFactorAuth": true,
+    "strictIpWhitelist": false,
+    "underMaintenance": false,
+    "maintenanceExpectedTime": "3-4 days",
+    "maintenanceStatus": "In Progress",
+    "maintenanceUpdates": "We'll notify you"
+  },
+  "payments": [],
+  "ads": {
+    "popupAd": {
+      "active": true,
+      "imageUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/banners/1783094045946_96m9yy7owa6.png",
+      "linkUrl": "https://resume.loganathanm.in/resume-builder.html",
+      "delaySeconds": 10
+    },
+    "popupAds": [
+      {
+        "active": false,
+        "imageUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/banners/1783094045946_96m9yy7owa6.png",
+        "linkUrl": "https://resume.loganathanm.in/resume-builder.html",
+        "delaySeconds": 10,
+        "id": "legacy-1",
+        "name": "Legacy Ad"
+      },
+      {
+        "id": "1783096519666",
+        "name": "New Ad 2",
+        "active": false,
+        "imageUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/banners/1783096530680_bgkp2njr8o.png",
+        "linkUrl": "wertyujikdfgbhnm",
+        "delaySeconds": 5
+      }
+    ]
+  },
+  "searchHistory": [
+    {
+      "query": "hkk",
+      "count": 1,
+      "lastSearched": "2026-07-04T09:56:53.132Z"
+    },
+    {
+      "query": "hkkhk",
+      "count": 2,
+      "lastSearched": "2026-07-04T10:03:50.318Z"
+    },
+    {
+      "query": "re",
+      "count": 2,
+      "lastSearched": "2026-07-09T16:17:09.070Z"
+    },
+    {
+      "query": "fm",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:08:05.790Z"
+    },
+    {
+      "query": "ere",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:15.227Z"
+    },
+    {
+      "query": "res",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:19.119Z"
+    },
+    {
+      "query": "sdfghjk",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:39.167Z"
+    },
+    {
+      "query": "sdfghj",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:42.822Z"
+    },
+    {
+      "query": "lo",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:45.026Z"
+    },
+    {
+      "query": "log",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:48.473Z"
+    },
+    {
+      "query": "loga",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:49.079Z"
+    },
+    {
+      "query": "logan",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:37:51.859Z"
+    },
+    {
+      "query": "yo",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:38:08.898Z"
+    },
+    {
+      "query": "you",
+      "count": 1,
+      "lastSearched": "2026-07-04T10:38:09.390Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "EVT-2026-576800",
+      "name": "Today Special Developer Upload Event",
+      "description": "Developers can submit apps for review during this limited-time event.",
+      "startTime": "2026-07-07T17:07",
+      "endTime": "2026-07-08T17:07",
+      "limit": 100,
+      "categories": [
+        "games",
+        "productivity",
+        "health",
+        "finance",
+        "social"
+      ],
+      "requireApproval": true,
+      "bannerUrl": "https://picsum.photos/seed/eventbanner/1200/400",
+      "links": [
+        {
+          "id": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+          "token": "de120182-de5a-43fe-a232-0c8182837931",
+          "url": "http://localhost:5173/event/dev-upload/de120182-de5a-43fe-a232-0c8182837931",
+          "clicks": 1,
+          "submissions": 5,
+          "createdAt": "2026-07-07T17:13:43.330Z",
+          "status": "expired"
+        },
+        {
+          "id": "472840c2-aa1a-471d-b850-14b5f38b18a6",
+          "token": "3c6373c9-f797-4917-ae26-04e1fee69bcd",
+          "url": "http://localhost:5173/event/dev-upload/3c6373c9-f797-4917-ae26-04e1fee69bcd",
+          "clicks": 7,
+          "submissions": 0,
+          "createdAt": "2026-07-08T04:00:52.473Z",
+          "status": "expired"
+        }
+      ],
+      "createdAt": "2026-07-07T17:13:38.458Z",
+      "status": "active"
+    }
+  ],
+  "eventSubmissions": [
+    {
+      "id": "SUB-2026-649058",
+      "eventId": "EVT-2026-576800",
+      "linkId": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+      "appData": {
+        "name": "lokesh",
+        "developer": "loki",
+        "email": "fghjk@sdfghj.ghj",
+        "category": "productivity",
+        "version": "1.0.0",
+        "shortDescription": "sdfghjklsdfgbhnjmk",
+        "description": "dfghjkswedrftghjuedrftgyujkdfghjk",
+        "websiteUrl": "",
+        "privacyUrl": "",
+        "termsAccepted": true,
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783444496274_3j56mhf5nkf.png",
+        "screenshotUrls": [
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444497116_2cx7b9fgxuj.png",
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444497895_f3tvnet1yw.png"
+        ],
+        "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783444498642_h94ktv24j4w.apk"
+      },
+      "status": "pending",
+      "createdAt": "2026-07-07T17:14:59.641Z"
+    },
+    {
+      "id": "SUB-2026-922444",
+      "eventId": "EVT-2026-576800",
+      "linkId": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+      "appData": {
+        "name": "lokesh",
+        "developer": "loki",
+        "email": "fghjk@sdfghj.ghj",
+        "category": "productivity",
+        "version": "1.0.0",
+        "shortDescription": "sdfghjklsdfgbhnjmk",
+        "description": "dfghjkswedrftghjuedrftgyujkdfghjk",
+        "websiteUrl": "",
+        "privacyUrl": "",
+        "termsAccepted": true,
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783444495386_2tp0cr0ylki.png",
+        "screenshotUrls": [
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444496416_x8snkeif5ub.png",
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444497933_umheuwr196i.png"
+        ],
+        "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783444498760_h42b3ee6c0d.apk"
+      },
+      "status": "pending",
+      "createdAt": "2026-07-07T17:14:59.652Z"
+    },
+    {
+      "id": "SUB-2026-716877",
+      "eventId": "EVT-2026-576800",
+      "linkId": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+      "appData": {
+        "name": "lokesh",
+        "developer": "loki",
+        "email": "fghjk@sdfghj.ghj",
+        "category": "productivity",
+        "version": "1.0.0",
+        "shortDescription": "sdfghjklsdfgbhnjmk",
+        "description": "dfghjkswedrftghjuedrftgyujkdfghjk",
+        "websiteUrl": "",
+        "privacyUrl": "",
+        "termsAccepted": true,
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783444501920_22ic9zxrajo.png",
+        "screenshotUrls": [
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444503004_arnugforiv5.png",
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444504833_g6n8ssdklm.png"
+        ],
+        "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783444505530_xg3z7vxaye.apk"
+      },
+      "status": "pending",
+      "createdAt": "2026-07-07T17:15:06.787Z"
+    },
+    {
+      "id": "SUB-2026-576964",
+      "eventId": "EVT-2026-576800",
+      "linkId": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+      "appData": {
+        "name": "lokesh",
+        "developer": "loki",
+        "email": "fghjk@sdfghj.ghj",
+        "category": "productivity",
+        "version": "1.0.0",
+        "shortDescription": "sdfghjklsdfgbhnjmk",
+        "description": "dfghjkswedrftghjuedrftgyujkdfghjk",
+        "websiteUrl": "",
+        "privacyUrl": "",
+        "termsAccepted": true,
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783444498469_6irmosvyny4.png",
+        "screenshotUrls": [
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444501932_n9t4bcetvc9.png",
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444503050_lmtaw49an9.png"
+        ],
+        "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783444508964_aptkg4jd086.apk"
+      },
+      "status": "approved",
+      "createdAt": "2026-07-07T17:15:10.362Z"
+    },
+    {
+      "id": "SUB-2026-352817",
+      "eventId": "EVT-2026-576800",
+      "linkId": "8c043534-ca37-40d6-a4b0-056ed4a4f9d6",
+      "appData": {
+        "name": "lokesh",
+        "developer": "loki",
+        "email": "fghjk@sdfghj.ghj",
+        "category": "productivity",
+        "version": "1.0.0",
+        "shortDescription": "sdfghjklsdfgbhnjmk",
+        "description": "dfghjkswedrftghjuedrftgyujkdfghjk",
+        "websiteUrl": "",
+        "privacyUrl": "",
+        "termsAccepted": true,
+        "iconUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/icons/1783444502163_pmghsxa99sf.png",
+        "screenshotUrls": [
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444508807_yna8l7wdkqm.png",
+          "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/screenshots/1783444509797_nxt109qubg.png"
+        ],
+        "downloadUrl": "https://rihatgzcwutshaogulgw.supabase.co/storage/v1/object/public/app-images/apks/1783444512339_dmxqd73ogbk.apk"
+      },
+      "status": "rejected",
+      "createdAt": "2026-07-07T17:15:13.069Z",
+      "rejectReason": "Incomplete Information"
+    }
+  ],
+  "developerWebsites": [
+    {
+      "id": "aa438618-0903-4324-ba30-2694c239b922",
+      "name": "Portfolio",
+      "url": "https://www.loganathanm.in/",
+      "iconUrl": "https://www.loganathanm.in/assets/img/Blue_Modern_Computer_Technology_Logo-removebg-preview.png",
+      "createdAt": "2026-07-09T14:15:43.135Z"
+    }
+  ]
+}

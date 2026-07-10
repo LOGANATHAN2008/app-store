@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Liquid Glass Tab Bar — iPhone 17 Pro Max style demo" />
+    <title>Liquid Glass Tab Bar Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html, body {
+        height: 100%;
+        font-family: -apple-system, 'SF Pro Display', 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+      }
+
+      /* ── Demo background — iPhone 17 Pro Max wallpaper gradient ── */
+      body {
+        background: linear-gradient(
+          160deg,
+          #0a0015 0%,
+          #0d0628 15%,
+          #0f1a3d 30%,
+          #091528 50%,
+          #0c0020 65%,
+          #180008 80%,
+          #0a0015 100%
+        );
+      }
+
+      /* Ambient colour orbs */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .orb-1 {
+        width: 300px; height: 300px;
+        top: -60px; left: -60px;
+        background: radial-gradient(circle, rgba(100,60,220,0.5), transparent 70%);
+      }
+      .orb-2 {
+        width: 260px; height: 260px;
+        top: 20%; right: -40px;
+        background: radial-gradient(circle, rgba(0,120,255,0.45), transparent 70%);
+      }
+      .orb-3 {
+        width: 220px; height: 220px;
+        bottom: 120px; left: 30%;
+        background: radial-gradient(circle, rgba(180,0,120,0.35), transparent 70%);
+      }
+
+      /* ── Phone mockup ── */
+      .phone {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 393px;
+        height: 852px;
+        border-radius: 54px;
+        border: 2px solid rgba(255,255,255,0.14);
+        background: linear-gradient(
+          150deg,
+          rgba(255,255,255,0.04) 0%,
+          rgba(255,255,255,0.01) 100%
+        );
+        box-shadow:
+          0 0 0 1px rgba(255,255,255,0.06),
+          0 40px 120px rgba(0,0,0,0.8),
+          0 0 80px rgba(100,60,220,0.15);
+        overflow: hidden;
+        backdrop-filter: blur(4px);
+      }
+
+      /* Dynamic Island */
+      .dynamic-island {
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 126px;
+        height: 37px;
+        border-radius: 20px;
+        background: #000;
+        z-index: 10;
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+      }
+
+      /* Phone screen content */
+      .screen-content {
+        position: absolute;
+        inset: 0;
+        padding: 70px 20px 140px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: hidden;
+      }
+
+      .content-card {
+        border-radius: 20px;
+        background: rgba(255,255,255,0.05);
+        border: 0.5px solid rgba(255,255,255,0.09);
+        backdrop-filter: blur(10px);
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        animation: fadeUp 0.6s ease-out both;
+      }
+      .content-card:nth-child(2) { animation-delay: 0.08s; }
+      .content-card:nth-child(3) { animation-delay: 0.16s; }
+      .content-card:nth-child(4) { animation-delay: 0.24s; }
+      .content-card:nth-child(5) { animation-delay: 0.32s; }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .card-icon {
+        width: 52px; height: 52px;
+        border-radius: 14px;
+        flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 24px;
+      }
+
+      .card-text-title {
+        font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 3px;
+        letter-spacing: -0.2px;
+      }
+      .card-text-sub {
+        font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.1px;
+      }
+
+      /* ── The tab bar ── */
+      .tab-bar-demo {
+        position: absolute;
+        bottom: 0;
+        left: 0; right: 0;
+        display: flex;
+        justify-content: center;
+        padding: 0 14px 28px;
+      }
+
+      .glass-bar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 72px;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.40),
+          0 2px 8px  rgba(0, 0, 0, 0.20),
+          inset 0  1px 0 rgba(255, 255, 255, 0.25),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(40px) saturate(200%) brightness(1.1);
+        -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.1);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      /* Titanium top specular */
+      .glass-bar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 10%; right: 10%;
+        height: 1px;
+        background: linear-gradient(
+          90deg, transparent,
+          rgba(255,255,255,0.60) 25%,
+          rgba(255,255,255,0.95) 50%,
+          rgba(255,255,255,0.60) 75%,
+          transparent
+        );
+        border-radius: 50%;
+      }
+
+      /* Shimmer sweep */
+      @keyframes shimmer {
+        0%   { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
+        30%  { opacity: 0.07; }
+        70%  { opacity: 0.07; }
+        100% { transform: translateX(220%) skewX(-15deg); opacity: 0; }
+      }
+      .glass-bar::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+        animation: shimmer 5s ease-in-out infinite;
+        border-radius: inherit;
+        pointer-events: none;
+      }
+
+      /* ── Tab items ── */
+      .tab {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        height: 100%;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        border: none;
+        background: none;
+        padding: 0 4px;
+        transition: transform 0.12s ease;
+      }
+      .tab:active { transform: scale(0.86); }
+
+      /* Active pill */
+      .tab-pill {
+        position: absolute;
+        inset: 10px 6px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: none;
+      }
+      .tab--active .tab-pill { display: block; }
+
+      /* Glow pulse */
+      @keyframes glowPulse {
+        0%, 100% { filter: drop-shadow(0 0  6px rgba(255,255,255,0.50)); }
+        50%       { filter: drop-shadow(0 0 14px rgba(255,255,255,0.90)); }
+      }
+
+      .tab-icon {
+        font-size: 22px;
+        line-height: 1;
+        color: rgba(255,255,255,0.42);
+        position: relative;
+        z-index: 1;
+        transition: color 0.18s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      }
+      .tab--active .tab-icon {
+        color: #fff;
+        animation: glowPulse 2.2s ease-in-out infinite;
+        transform: scale(1.12) translateY(-3px);
+      }
+
+      .tab-label {
+        font-family: -apple-system, 'SF Pro Text', 'Inter', sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.1px;
+        color: rgba(255,255,255,0.42);
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+        transition: color 0.18s;
+      }
+      .tab--active .tab-label {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      /* ── Side labels ── */
+      .demo-label {
+        position: fixed;
+        font-size: 13px;
+        color: rgba(255,255,255,0.35);
+        letter-spacing: 0.5px;
+        font-weight: 500;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .demo-label-left  { left: max(16px, calc(50% - 240px)); top: 50%; transform: translateY(-50%); }
+      .demo-label-right { right: max(16px, calc(50% - 240px)); top: 50%; transform: translateY(-50%) rotate(180deg); }
+
+      /* ── Responsive ── */
+      @media (max-width: 440px) {
+        .phone {
+          width: 100vw; height: 100dvh;
+          border-radius: 0; border: none;
+          box-shadow: none;
+        }
+        .dynamic-island { display: none; }
+        .orb { display: none; }
+        .demo-label { display: none; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .glass-bar::after { animation: none; }
+        .tab--active .tab-icon { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ambient orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Side labels -->
+    <div class="demo-label demo-label-left">iPhone 17 Pro Max</div>
+    <div class="demo-label demo-label-right">Liquid Glass UI</div>
+
+    <!-- Phone mockup -->
+    <div class="phone">
+      <div class="dynamic-island"></div>
+
+      <!-- Screen content -->
+      <div class="screen-content" id="screenContent">
+        <!-- Injected by JS based on active tab -->
+      </div>
+
+      <!-- Glass Tab Bar -->
+      <div class="tab-bar-demo">
+        <div class="glass-bar">
+
+          <button class="tab tab--active" data-tab="for-you" onclick="switchTab(this)" aria-label="For You" aria-current="page">
+            <div class="tab-pill"></div>
+            <div class="tab-icon">👤</div>
+            <span class="tab-label">For You</span>
+          </button>
+
+          <button class="tab" data-tab="products" onclick="switchTab(this)" aria-label="Products">
+            <div class="tab-pill"></div>
+            <div class="tab-icon">🛍</div>
+            <span class="tab-label">Products</span>
+          </button>
+
+          <button class="tab" data-tab="go-further" onclick="switchTab(this)" aria-label="Go Further">
+            <div class="tab-pill"></div>
+            <div class="tab-icon">➡️</div>
+            <span class="tab-label">Go Further</span>
+          </button>
+
+          <button class="tab" data-tab="buy" onclick="switchTab(this)" aria-label="Buy">
+            <div class="tab-pill"></div>
+            <div class="tab-icon">💳</div>
+            <span class="tab-label">Buy</span>
+          </button>
+
+          <button class="tab" data-tab="search" onclick="switchTab(this)" aria-label="Search">
+            <div class="tab-pill"></div>
+            <div class="tab-icon">🔍</div>
+            <span class="tab-label">Search</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const CONTENT = {
+        'for-you': [
+          { emoji: '🌟', bg: 'linear-gradient(135deg,#1a1042,#2d1f6e)', title: 'Recommended for You', sub: 'Based on your downloads' },
+          { emoji: '🎮', bg: 'linear-gradient(135deg,#0f2744,#0a3d6e)', title: 'Pixel Forge', sub: 'Strategy · Editor\'s Choice' },
+          { emoji: '🧘', bg: 'linear-gradient(135deg,#0d3320,#1a5c3a)', title: 'MindfulMe', sub: 'Health & Fitness · Free' },
+          { emoji: '🎵', bg: 'linear-gradient(135deg,#3a0d1f,#6e1a36)', title: 'SoundWave', sub: 'Music · In-App Purchases' },
+        ],
+        'products': [
+          { emoji: '📱', bg: 'linear-gradient(135deg,#1f1a0d,#3d340a)', title: 'iPhone 17 Pro Max', sub: 'Titanium · 256GB' },
+          { emoji: '⌚', bg: 'linear-gradient(135deg,#0d1a2e,#1a3a5c)', title: 'Apple Watch Ultra 3', sub: 'Titanium · GPS' },
+          { emoji: '🎧', bg: 'linear-gradient(135deg,#1a0d2e,#3a1a5c)', title: 'AirPods Pro 3', sub: 'Active Noise Cancellation' },
+          { emoji: '💻', bg: 'linear-gradient(135deg,#0d1f0d,#1a3d1a)', title: 'MacBook Pro M5', sub: '16-inch · 32GB' },
+        ],
+        'go-further': [
+          { emoji: '🚀', bg: 'linear-gradient(135deg,#0d0d2e,#1a1a5c)', title: 'Go Further with Apple', sub: 'Discover new features' },
+          { emoji: '🎓', bg: 'linear-gradient(135deg,#1a0d0d,#3d1a1a)', title: 'Apple Fitness+', sub: 'Train with experts' },
+          { emoji: '🌍', bg: 'linear-gradient(135deg,#0d1a1a,#1a3d3d)', title: 'Apple Maps', sub: 'Explore the world' },
+          { emoji: '📚', bg: 'linear-gradient(135deg,#1a1a0d,#3d3d1a)', title: 'Apple Books', sub: 'Millions of titles' },
+        ],
+        'buy': [
+          { emoji: '💰', bg: 'linear-gradient(135deg,#0d2010,#1a4020)', title: 'Apple Store Credit', sub: 'Balance: $124.00' },
+          { emoji: '🎁', bg: 'linear-gradient(135deg,#200d10,#401a20)', title: 'Gift Cards', sub: 'Send the gift of Apple' },
+          { emoji: '💳', bg: 'linear-gradient(135deg,#0d0d20,#1a1a40)', title: 'Apple Card', sub: '2% Daily Cash on purchases' },
+          { emoji: '📦', bg: 'linear-gradient(135deg,#101a0d,#203410)', title: 'Recent Orders', sub: '3 items delivered' },
+        ],
+        'search': [
+          { emoji: '🔎', bg: 'linear-gradient(135deg,#1a1a1a,#2a2a2a)', title: 'Top Searches', sub: 'Trending right now' },
+          { emoji: '🎯', bg: 'linear-gradient(135deg,#1a0d1a,#3a1a3a)', title: 'NovaMind AI', sub: 'Productivity · Free' },
+          { emoji: '📸', bg: 'linear-gradient(135deg,#0d1a2a,#1a3040)', title: 'Phantom Camera', sub: 'Photo & Video · Free' },
+          { emoji: '💬', bg: 'linear-gradient(135deg,#1a0d0d,#3a1818)', title: 'ThreadTalk', sub: 'Social · Free' },
+        ],
+      }
+
+      function switchTab(btn) {
+        document.querySelectorAll('.tab').forEach(t => {
+          t.classList.remove('tab--active')
+          t.removeAttribute('aria-current')
+        })
+        btn.classList.add('tab--active')
+        btn.setAttribute('aria-current', 'page')
+
+        const tabId = btn.dataset.tab
+        renderContent(tabId)
+      }
+
+      function renderContent(tabId) {
+        const items = CONTENT[tabId] || []
+        const container = document.getElementById('screenContent')
+        container.innerHTML = items.map(item => `
+          <div class="content-card" style="animation: fadeUp 0.35s ease-out both;">
+            <div class="card-icon" style="background: ${item.bg}">${item.emoji}</div>
+            <div>
+              <div class="card-text-title">${item.title}</div>
+              <div class="card-text-sub">${item.sub}</div>
+            </div>
+          </div>
+        `).join('')
+      }
+
+      // Init
+      renderContent('for-you')
+    </script>
+  </body>
+</html>

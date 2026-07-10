@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.3px;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+  /* Selection */
+  ::selection { background: rgba(10, 132, 255, 0.3); }
+
+  /* Focus rings */
+  :focus-visible { outline: 2px solid #0A84FF; outline-offset: 2px; border-radius: 4px; }
+}
+
+@layer components {
+  /* ─── Glassmorphism Navbar ─── */
+  .glass-nav {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  /* ─── Cards ─── */
+  .glass-card {
+    background: rgba(28, 28, 30, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.5px solid rgba(255,255,255,0.08);
+  }
+
+  /* ─── App Icon ─── */
+  .app-icon {
+    border-radius: 22%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #1c1c1e;
+  }
+  .app-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* ─── Buttons ─── */
+  .btn-get {
+    @apply inline-flex items-center justify-center;
+    background: #0A84FF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 5px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    transition: opacity 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .btn-get:hover { opacity: 0.88; }
+  .btn-get:active { transform: scale(0.96); opacity: 0.8; }
+
+  .btn-price {
+    @apply inline-flex items-center justify-center;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 5px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    transition: opacity 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .btn-price:hover { opacity: 0.88; }
+  .btn-price:active { transform: scale(0.96); }
+
+  /* ─── Typography ─── */
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+  }
+
+  .display-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+  }
+
+  .see-all {
+    color: #0A84FF;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    white-space: nowrap;
+  }
+  .see-all:hover { opacity: 0.8; }
+
+  /* ─── Skeleton ─── */
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #1c1c1e;
+    border-radius: 12px;
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.04) 40%,
+      rgba(255,255,255,0.08) 50%,
+      rgba(255,255,255,0.04) 60%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  /* ─── Divider ─── */
+  .divider {
+    border: none;
+    border-top: 0.5px solid rgba(255,255,255,0.08);
+    margin: 0;
+  }
+
+  /* ─── Scroll row ─── */
+  .scroll-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+  }
+  .scroll-row > * { scroll-snap-align: start; }
+  .scroll-row::-webkit-scrollbar { display: none; }
+
+  /* ─── Star bars ─── */
+  .star-bar {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+  }
+  .star-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: #8E8E93;
+    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ─── Page container ─── */
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ─── Section spacing ─── */
+  .section { margin-bottom: 44px; }
+
+  /* ─── Tags / Badges ─── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    border: 0.5px solid rgba(255,255,255,0.12);
+  }
+
+  /* ─── Input / Textarea ─── */
+  .input-field {
+    width: 100%;
+    background: #2c2c2e;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .input-field:focus { border-color: #0A84FF; }
+  .input-field::placeholder { color: #636366; }
+
+  /* ─── No scrollbar utility ─── */
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@layer utilities {
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #0A84FF, #30D158);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-white {
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .inset-shadow { box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+
+  .card-shadow { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.3); }
+
+  .glow-blue { box-shadow: 0 0 40px rgba(10, 132, 255, 0.3); }
+  .glow-green { box-shadow: 0 0 40px rgba(48, 209, 88, 0.3); }
+}
+
+/* ─── Animations ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.06); }
+}
+
+@keyframes spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Apple-style spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.spinner-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 6px;
+  border-radius: 1px;
+  background: rgba(255,255,255,0.8);
+  transform-origin: center -4px;
+}
+
+/* ─── Swiper overrides ─── */
+.swiper-pagination { bottom: 16px !important; }
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.35) !important;
+  opacity: 1 !important;
+  width: 6px !important;
+  height: 6px !important;
+  transition: all 0.25s !important;
+}
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+  width: 18px !important;
+  border-radius: 3px !important;
+}
+
+/* Glass Pill Pagination for Today Page */
+.glass-pagination-swiper .swiper-pagination {
+  background: rgba(100, 100, 100, 0.3) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: 6px 12px !important;
+  border-radius: 100px !important;
+  bottom: 16px !important;
+  border: 0.5px solid rgba(255,255,255,0.15) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: content-box !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+}
+
+.glass-pagination-swiper .swiper-pagination-bullet {
+  background: rgba(255,255,255,0.4) !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  margin: 0 4px !important;
+}
+
+.glass-pagination-swiper .swiper-pagination-bullet-active {
+  background: #ffffff !important;
+  width: 7px !important;
+  transform: scale(1.2);
+}
+
+/* ─── react-hot-toast overrides ─── */
+div[data-hot-toast] {
+  border-radius: 14px !important;
+}
+
+/* ─── Safe area padding for mobile ─── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* ─── Smooth page transitions ─── */
+main { position: relative; }
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+/* ─── Light Mode Magic Filter ─── */
+html.light-mode {
+  filter: invert(1) hue-rotate(180deg);
+  background: #ffffff;
+}
+
+html.light-mode img:not(.no-reinvert), 
+html.light-mode video, 
+html.light-mode canvas, 
+html.light-mode [style*="background-image"], 
+html.light-mode .no-invert {
+  filter: invert(1) hue-rotate(180deg);
+}

@@ -1,0 +1,242 @@
+/* ══════════════════════════════════════════════════════════════════
+   LIQUID GLASS TAB BAR — iPhone 17 Pro Max Design System
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Glass tokens */
+  --glass-bg:            rgba(255, 255, 255, 0.03);
+  --glass-bg-light:      rgba(255, 255, 255, 0.15);
+  --glass-border:        rgba(255, 255, 255, 0.25);
+  --glass-border-light:  rgba(255, 255, 255, 0.40);
+  --glass-blur:          50px;
+  --glass-saturation:    200%;
+  --glass-brightness:    1.2;
+  --glass-radius:        30px;
+  --glass-height:        60px;
+
+  /* Pill tokens */
+  --pill-bg:             rgba(255, 255, 255, 0.15);
+  --pill-border:         rgba(255, 255, 255, 0.25);
+  --pill-radius:         14px;
+
+  /* Icon tokens */
+  --icon-active:         #FFFFFF;
+  --icon-inactive:       rgba(255, 255, 255, 0.42);
+  --icon-inactive-light: rgba(0, 0, 0, 0.35);
+  --icon-glow:           rgba(255, 255, 255, 0.6);
+
+  /* Label tokens */
+  --label-active:        #FFFFFF;
+  --label-inactive:      rgba(255, 255, 255, 0.42);
+  --label-font:          -apple-system, 'SF Pro Text', 'Inter', sans-serif;
+  --label-size:          10px;
+  --label-weight-on:     600;
+  --label-weight-off:    500;
+  --label-tracking:      0.1px;
+
+  /* Shadow stack */
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.40),
+    0 2px 8px  rgba(0, 0, 0, 0.20),
+    inset 0  1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+
+  --glass-shadow-light:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px  rgba(0, 0, 0, 0.08),
+    inset 0  1px 0 rgba(255, 255, 255, 0.80),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.30);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────── */
+
+@keyframes gtb-shimmer {
+  0%   { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
+  30%  { opacity: 0.06; }
+  70%  { opacity: 0.06; }
+  100% { transform: translateX(220%) skewX(-15deg); opacity: 0; }
+}
+
+@keyframes gtb-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0  6px rgba(255, 255, 255, 0.50)); }
+  50%       { filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.90)); }
+}
+
+@keyframes gtb-glow-pulse-light {
+  0%, 100% { filter: drop-shadow(0 0  6px rgba(0, 122, 255, 0.45)); }
+  50%       { filter: drop-shadow(0 0 12px rgba(0, 122, 255, 0.85)); }
+}
+
+/* reduced-motion: kill animations, keep glass */
+@media (prefers-reduced-motion: reduce) {
+  .gtb-shimmer::after,
+  .gtb-icon--active    { animation: none !important; }
+  .gtb-pill            { transition: none !important; }
+}
+
+/* ── Outer wrapper ─────────────────────────────────────────────── */
+.gtb-wrapper {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 430px;
+  z-index: 9999;
+  /* Expose safe-area on real iOS */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ── Glass bar ─────────────────────────────────────────────────── */
+.gtb-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: var(--glass-height);
+  border-radius: var(--glass-radius);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation)) brightness(var(--glass-brightness));
+  isolation: isolate;
+}
+
+/* Light variant */
+.gtb-bar--light {
+  border-color: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  --icon-inactive: rgba(0, 0, 0, 0.5);
+  --label-inactive: rgba(0, 0, 0, 0.45);
+  --icon-active: #007AFF;
+  --label-active: #007AFF;
+  --pill-bg: rgba(0, 122, 255, 0.08);
+  --pill-border: rgba(0, 122, 255, 0.15);
+}
+
+.gtb-split-container {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+/* ── Titanium top-edge specular highlight ──────────────────────── */
+.gtb-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.60) 25%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.60) 75%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Shimmer sweep ─────────────────────────────────────────────── */
+.gtb-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.40) 50%,
+    transparent 100%
+  );
+  animation: gtb-shimmer 5s ease-in-out infinite;
+  border-radius: inherit;
+  pointer-events: none;
+  clip-path: inset(0 round var(--glass-radius));
+}
+
+/* ── Tab button ────────────────────────────────────────────────── */
+.gtb-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  padding: 0 4px;
+  /* focus ring */
+  outline-offset: -4px;
+}
+
+.gtb-tab:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+
+/* ── Active frosted pill (rendered via JS/Framer layoutId) ─────── */
+.gtb-pill-static {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 50%;
+  width: 60px;
+  margin-left: -30px;
+  border-radius: 24px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+/* ── Icon wrapper ──────────────────────────────────────────────── */
+.gtb-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-inactive);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.gtb-icon--active {
+  color: var(--icon-active);
+  animation: gtb-glow-pulse 2.2s ease-in-out infinite;
+}
+
+.gtb-bar--light .gtb-icon--active {
+  animation: gtb-glow-pulse-light 2.2s ease-in-out infinite;
+}
+
+/* ── Label ─────────────────────────────────────────────────────── */
+.gtb-label {
+  font-family: var(--label-font);
+  font-size: var(--label-size);
+  letter-spacing: var(--label-tracking);
+  line-height: 1;
+  pointer-events: none;
+  color: var(--label-inactive);
+  font-weight: var(--label-weight-off);
+  transition: color 0.2s ease, font-weight 0.1s;
+  white-space: nowrap;
+}
+
+.gtb-label--active {
+  color: var(--label-active);
+  font-weight: var(--label-weight-on);
+}
