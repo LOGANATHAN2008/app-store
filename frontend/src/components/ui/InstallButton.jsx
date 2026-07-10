@@ -163,6 +163,12 @@ export default function InstallButton({ app, size = 'md' }) {
           if (app.downloadUrl) {
             let finalUrl = app.downloadUrl;
             
+            // If it's a relative path (local upload), prepend the backend URL
+            if (finalUrl.startsWith('/uploads/')) {
+              const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+              finalUrl = `${backendUrl.replace(/\/$/, '')}${finalUrl}`;
+            }
+            
             // Fix cross-origin filename issue for Supabase storage
             if (finalUrl.includes('supabase.co') && !finalUrl.includes('download=')) {
               const safeName = app.name.replace(/[^a-zA-Z0-9]/g, '_');
